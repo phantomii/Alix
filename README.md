@@ -1,0 +1,2 @@
+# Alix
+Smart home platform
