@@ -4,7 +4,6 @@ oslo.config==5.2.0
 oslo.i18n==3.19.0
 oslo.utils==3.36.0
 ipaddress==1.0.19
-# scapy==2.4.0
 -e git+https://github.com/phantomii/restalchemy.git@master#egg=restalchemy
 
 # requirements for RestAlchemy
