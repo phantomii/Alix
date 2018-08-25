@@ -1,1 +1,4 @@
+wget==3.2
 sphinx==1.7.6
+sphinxcontrib-plantuml==0.12
+pillow==5.2.0

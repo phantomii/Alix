@@ -1,0 +1,10 @@
+@startuml
+
+title API interface
+
+interface API {
+    {abstract} subscribe(on_type: EventType): Queue
+    {abstract} fire(event: Event): None
+}
+
+@enduml

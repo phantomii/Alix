@@ -1,0 +1,20 @@
+@startuml
+
+title Subscribe diagram
+
+actor "Subscriber" as S
+participant "API"
+participant "EventFilter" as EF
+
+S -> API: Subscribe to the event_type: EventType
+activate API
+API -> API: Create a queue: Queue
+API -> API: Generate a key: String by the event_type: EventType
+API -> EF: Add a filter by the key: String for the queue: Queue
+activate EF
+EF --> API: Ok: None
+deactivate EF 
+API --> S: The queue: Queue
+deactivate API
+
+@enduml

@@ -1,0 +1,22 @@
+@startuml
+
+title Fire diagram
+
+actor "Publisher" as P
+participant "API"
+participant "EventFilter" as EF
+actor "Subscriber Queue" as S
+
+P -> API: Fire a event: Event
+activate API
+API -> API: Get event_type: EventType by the event: Event
+API -> API: Generate a key: String by the event_type: EventType
+API -> EF: Apply filters by the key: String and the event: Event
+activate EF
+EF -> S: Put the event: Event to subscriber queue
+EF --> API: ok: None
+deactivate EF 
+API --> P: ok: None
+deactivate API
+
+@enduml
