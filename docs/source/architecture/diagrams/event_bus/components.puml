@@ -1,0 +1,26 @@
+@startuml
+
+skinparam componentStyle uml2
+
+title Event bus component diagram
+
+[Publisher1..N]
+[Subscriber1]
+[SubscriberN]
+
+package "Event Bus" {
+    [API]
+    [API] -left-> [EventFilter]: "Filtering events for\nevery subscribers"
+    [EventFilter] -up-> [Queue1-1]: "Put Event1"
+    [EventFilter] -down-> [QueueN-1]: "Put Event1"
+    [EventFilter] -down-> [QueueN-N]: "Put EventN"
+    [Queue1-1] -> [Subscriber1]: "Event1"
+    [QueueN-1] -> [SubscriberN]: "Event1"
+    [QueueN-N] -> [SubscriberN]: "EventN"
+}
+
+[Publisher1..N] -> [API]: "Publish Event1 .. EventN"
+[Subscriber1] --> [API]: "Subscribe to Event1"
+[SubscriberN] --> [API]: "Subscribe to Event1\nSubscribe to EventN"
+
+@enduml

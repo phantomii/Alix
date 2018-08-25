@@ -50,6 +50,7 @@ extensions = [
     'sphinx.ext.ifconfig',
     'sphinx.ext.viewcode',
     'sphinx.ext.githubpages',
+    'sphinxcontrib.plantuml',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -59,7 +60,7 @@ templates_path = ['_templates']
 # You can specify multiple suffix as a list of string:
 #
 # source_suffix = ['.rst', '.md']
-source_suffix = '.rst'
+source_suffix = ['.rst', '.md']
 
 # The master toctree document.
 master_doc = 'index'
@@ -177,3 +178,7 @@ intersphinx_mapping = {'https://docs.python.org/': None}
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = True
+
+
+# PlantUML command for sphinxcontrib.plantuml extension
+plantuml = 'java -jar /tmp/plantuml.jar'
